@@ -7,18 +7,59 @@ public class Main {
     // function to checkPalindrome
 
     public void checkPalindrome() {
+        System.out.println("Enter any number : ");
+        int num = sc.nextInt();
+
+        int Num1 = num;
+        int Num2 = 0;
+
+        while (Num1 != 0) {
+            int digit = Num1 % 10;
+            Num1 /= 10;
+            Num2 = Num2 * 10 + digit;
+        }
+
+        if (Num2 == num)
+            System.out.println(num + " is palindrome");
+        else
+            System.out.println(num + " is not palindrome");
 
     }
 
     // function to printPattern
 
     public void printPattern() {
+        System.out.println("Enter the number of rows you want to print: ");
+
+        int rows = sc.nextInt();
+
+        for (int i = rows - 1; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("*" + " ");
+            }
+            System.out.println();
+        }
 
     }
 
     // function to check no is prime or not
 
     public void checkPrimeNumber() {
+        int temp;
+        boolean isPrime = true;
+        System.out.print("Enter a number you want to check: ");
+        int n = sc.nextInt();
+        for (int i = 2; i <= n / 2; i++) {
+            temp = n % i;
+            if (temp == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime)
+            System.out.println(n + " is a Prime Number");
+        else
+            System.out.println(n + " is not a Prime Number");
 
     }
 
@@ -26,7 +67,14 @@ public class Main {
 
     public void printFibonacciSeries() {
 
-        // initialize the first and second value as 0,1 respectively.
+        int n = 10, first = 0, second = 1;
+        System.out.print(first + " " + second);
+        for (int i = 3; i <= n; i++) {
+            int term = first + second;
+            System.out.println(" " + term);
+            first = second;
+            second = term;
+        }
 
     }
 
@@ -48,7 +96,7 @@ public class Main {
 
                     + "4. Print Fibonacci series.\n" + "--> Enter 0 to Exit.\n");
 
-            System.out.println("Enter your choice: ");
+            System.out.println();
             choice = sc.nextInt();
 
             switch (choice) {
@@ -62,24 +110,6 @@ public class Main {
                 case 1: {
 
                     obj.checkPalindrome();
-                    System.out.println("Enter any number : ");
-                    int num = sc.nextInt();
-
-                    choice = 1;
-
-                    int Num1 = num;
-                    int Num2 = 0;
-
-                    while (Num1 != 0) {
-                        int digit = Num1 % 10;
-                        Num1 /= 10;
-                        Num2 = Num2 * 10 + digit;
-                    }
-
-                    if (Num2 == num)
-                        System.out.println(num + " is palindrome");
-                    else
-                        System.out.println(num + " is not palindrome");
 
                 }
 
@@ -87,17 +117,6 @@ public class Main {
 
                 case 2: {
                     obj.printPattern();
-                    choice = 2;
-                    System.out.println("Enter the number of rows you want to print: ");
-
-                    int rows = sc.nextInt();
-
-                    for (int i = rows - 1; i >= 0; i--) {
-                        for (int j = 0; j <= i; j++) {
-                            System.out.print("*" + " ");
-                        }
-                        System.out.println();
-                    }
 
                 }
 
@@ -106,41 +125,16 @@ public class Main {
                 case 3: {
 
                     obj.checkPrimeNumber();
-                    choice = 3;
-                    int temp;
-                    boolean isPrime = true;
-                    System.out.print("Enter a number you want to check: ");
-                    int n = sc.nextInt();
-                    for (int i = 2; i <= n / 2; i++) {
-                        temp = n % i;
-                        if (temp == 0) {
-                            isPrime = false;
-                            break;
-                        }
-                    }
-                    if (isPrime)
-                        System.out.println(n + " is a Prime Number");
-                    else
-                        System.out.println(n + " is not a Prime Number");
+
                 }
 
                     break;
                 case 4: {
                     obj.printFibonacciSeries();
-                    choice = 4;
-
-                    int n = 10, first = 0, second = 1;
-                    System.out.print(first + " " + second);
-                    for (int i = 3; i <= n; i++) {
-                        int term = first + second;
-                        System.out.println(" " + term);
-                        first = second;
-                        second = term;
-                    }
-
-                    break;
 
                 }
+
+                    break;
 
                 default:
 
